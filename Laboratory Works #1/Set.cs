@@ -19,12 +19,17 @@ public static class Set
         Complement = 4,
     }
 
+    /// <summary>
+    /// Grabs elements that is provided by user and converts to List with this elements.
+    /// </summary>
+    /// <param name="set">A list of elements that you want to add to list</param>
+    /// <returns>A list with custom elements.</returns>
     public static List<object> CreateSet(List<object> set)
     {
         List<object> result = new List<object>();
         if (set.Count == 0)
         {
-            Console.WriteLine("Looks like you are tried to add empty list. Operation will return the null list.w");
+            Console.WriteLine("Looks like you are tried to add empty list. Operation will return the null list.");
             return result;
         }
         else
@@ -197,6 +202,10 @@ public static class Set
         return Difference(universalSet, setA);
     }
 
+    /// <summary>
+    /// Function that takes expression and dictionary variables to operate string tasks.
+    /// </summary>
+    /// <returns>A result.</returns>
     public static List<object> ExpressionEvaluator(string expression, Dictionary<string, List<object>> setDict)
     {
         string[] expressions = expression.Split(' ');
@@ -210,7 +219,6 @@ public static class Set
             {
                 if (currentFunction != PossibleFunctions.None)
                 {
-                    // apply function
                     switch (currentFunction)
                     {
                         case PossibleFunctions.Intersection:
@@ -246,6 +254,27 @@ public static class Set
             }
         }
         return result;
+    }
+   
+
+    public static List<List<object>> CustomSubSet(List<object> list)
+    {
+        List<List<object>> resultSubset = new List<List<object>>();
+        int totalSubsetNumber = 1 << list.Count;
+
+        for (int i = 0; i < totalSubsetNumber; i++)
+        {
+            List<object> subset = new List<object>();
+            for (int j = 0; j < list.Count; j++)
+            {
+                if ((i & (1 << j)) != 0)
+                {
+                    subset.Add(list[j]);
+                }
+            }
+            resultSubset.Add(subset);
+        }
+        return resultSubset;
     }
 
     private static void AddAll(List<object> list, List<object> fill)
