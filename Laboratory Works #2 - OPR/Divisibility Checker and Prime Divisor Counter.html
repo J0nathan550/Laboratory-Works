@@ -1,0 +1,55 @@
+<script>
+function isPrime(number) {
+    if (number <= 1) {
+        return false;
+    }
+    if (number <= 3) {
+        return true;
+    }
+    if (number % 2 === 0 || number % 3 === 0) {
+        return false;
+    }
+    for (let i = 5; i * i <= number; i += 6) {
+        if (number % i === 0 || number % (i + 2) === 0) {
+            return false;
+        }
+    }
+    return true;
+}
+
+function drawDivisibility(k, n) {
+    let result = "";
+    for (let i = k; i <= n; i++) {
+        let divisors = 0;
+        let primes = 0;
+        for (var j = 2; j <= i; j++) {
+            if (i % j == 0) {
+                divisors++;
+                if (isPrime(j)) {
+                    primes++;
+                }
+            }
+        }
+        result += `${i} - ${divisors} `;
+        for (var k = 0; k < primes; k++) {
+            result += '*';
+        }
+        result += '\n';
+    }
+    alert(result);
+    return result;
+}
+const k = parseInt(prompt("Введіть k:"));
+if(isNaN(k)) alert("Число k має не потрібні символи!");
+else {
+  const n = parseInt(prompt("Введіть n:"));
+  if(isNaN(n)) alert("Число n має не потрібні символи!");
+  else {
+    if(k > n) alert("Число k більше за n!");
+    else {
+        const result = drawDivisibility(k, n);
+        console.log(result);
+    }
+  }
+}
+</script>

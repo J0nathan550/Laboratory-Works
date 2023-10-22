@@ -1,0 +1,45 @@
+<script>
+    function isSumOfMinMaxDivisible(number, a) {
+        if (number < 10) {
+            return number % a === 0;
+        }
+
+        let maxDigit = 0;
+        let minDigit = 9;
+
+        let tempNumber = number;
+        while (tempNumber > 0) {
+            const digit = tempNumber % 10;
+            maxDigit = Math.max(maxDigit, digit);
+            minDigit = Math.min(minDigit, digit);
+            tempNumber = Math.floor(tempNumber / 10);
+        }
+
+        const sum = maxDigit + minDigit;
+
+        return sum % a === 0;
+    }
+
+    let number = parseInt(prompt("Введіть натуральне число: "));
+    if(isNaN(number)) alert("Натуральне число не повинно мати зайвих символів!");
+    else {
+        if(number <= 0) alert("Число повинно бути натуральним!");
+        else {
+             let a = parseInt(prompt("Введіть число a: "));
+             if(isNaN(a)) alert("Число a не повинно мати зайвих символів!");
+             else {
+                 if(a <= 0) alert("Число а повинно бути натуральним!");
+                 else {
+                    if (isSumOfMinMaxDivisible(number, a)) 
+                    {
+                        alert(`Сума максимальної та мінімальної цифр числа ${number} кратна ${a}`);
+                    } 
+                    else 
+                    {
+                        alert(`Сума максимальної та мінімальної цифр числа ${number} не кратна ${a}`);
+                    }
+                 }
+             }
+        }
+    }
+</script>

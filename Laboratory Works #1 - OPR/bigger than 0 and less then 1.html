@@ -1,8 +1,12 @@
-﻿<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <title>Більше ніж 0 меньше ніж 1</title>
-</head>
-<body>
-    <script src="bigger than 0 and less then 1.js"></script>
-</body>
-</html>
+<script>
+    let count = 0;
+    let i = 1; 
+    while (i <= 8) {
+        let number = parseFloat(prompt("Введіть число від 0 або 1: "));
+        if (!isNaN(number) && number > 0 && number < 1) {
+            count++;
+        }
+        i++;
+    }
+    alert("Сумма чисел, які були менше за 1 та більше за 0: " + count);
+</script>
