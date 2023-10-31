@@ -4,7 +4,7 @@
     {
         Console.WriteLine("Task 1 (Complex Logical Expressions Evaluation):");
 
-        string expression = "(A AND B) OR (NOT C)";
+        string expression = "A OR B AND (NOT C)";
         Dictionary<string, bool> dictionary = new Dictionary<string, bool>();
         dictionary.Add("A", true);
         dictionary.Add("B", false);

@@ -2,161 +2,78 @@
 {
     private static void Main(string[] args)
     {
-        ///* all possible cases */
-        //Console.WriteLine("Creating List\n");
-        //var result = Set.CreateSet(new List<object> { 1, 3, 3, 2, "hey", "hey" });
-        //string output = "{";
-        //foreach (var item in result)
-        //{
-        //    output += item.ToString() + ", ";
-        //}
+        string output = "";
+        Console.WriteLine("Checking the result of uniting setA, setB\n");
 
-        //output = output.Substring(0, output.Length - 2);
-        //output += "}";
-        //Console.WriteLine(output);
+        List<object> setA = new List<object>() { 2, 4, 6, 8, 10 };
+        List<object> setB = new List<object>() { 1, 3, 5, 7, 9 };
+        var anotherList = Set.Union(setA, setB);
 
-        //Console.WriteLine();
+        output = "{";
+        foreach (var item in anotherList)
+        {
+            output += item.ToString() + ", ";
+        }
 
-        //Console.WriteLine("Adding element 10\n\n");
+        output = output.Substring(0, output.Length - 2);
+        output += "}";
+        Console.WriteLine(output);
 
-        //Set.AddElement(result, 10);
-        //output = "{";
-        //foreach (var item in result)
-        //{
-        //    output += item.ToString() + ", ";
-        //}
+        Console.WriteLine();
 
-        //output = output.Substring(0, output.Length - 2);
-        //output += "}";
-        //Console.WriteLine(output);
+        Console.WriteLine("Checking the result of Intersecting setA, setB\n");
 
-        //Console.WriteLine();
+        anotherList = Set.Intersection(setA, setB);
 
-        //Console.WriteLine("Adding element 10, to check if it's duplicating\n\n");
+        output = "{";
+        foreach (var item in anotherList)
+        {
+            output += item.ToString() + ", ";
+        }
 
-        //Set.AddElement(result, 10);
-        //output = "{";
-        //foreach (var item in result)
-        //{
-        //    output += item.ToString() + ", ";
-        //}
+        output = output.Substring(0, output.Length - 2);
+        output += "}";
+        Console.WriteLine(output);
 
-        //output = output.Substring(0, output.Length - 2);
-        //output += "}";
-        //Console.WriteLine(output);
-
-        //Console.WriteLine();
-
-        //Console.WriteLine("Removing element 10\n");
-
-        //Set.RemoveElement(result, 10);
-        //output = "{";
-        //foreach (var item in result)
-        //{
-        //    output += item.ToString() + ", ";
-        //}
-
-        //output = output.Substring(0, output.Length - 2);
-        //output += "}";
-        //Console.WriteLine(output);
-
-        //Console.WriteLine();
-
-        //Console.WriteLine("Removing element 10 once again to check for error.\n");
-
-        //Set.RemoveElement(result, 10);
-        //output = "{";
-        //foreach (var item in result)
-        //{
-        //    output += item.ToString() + ", ";
-        //}
+        Console.WriteLine();
 
 
-        //output = output.Substring(0, output.Length - 2);
-        //output += "}";
-        //Console.WriteLine(output);
+        Console.WriteLine("Checking the result of Differecing setA, setB\n");
 
-        //Console.WriteLine();
+        anotherList = Set.Difference(setA, setB);
 
-        //Console.WriteLine("Checking if the list contains value 1\n");
+        output = "{";
+        foreach (var item in anotherList)
+        {
+            output += item.ToString() + ", ";
+        }
 
-        //Console.WriteLine(Set.ContainsElement(result, 1));
-        //Console.WriteLine("Checking if the list contains value 4\n");
-        //Console.WriteLine(Set.ContainsElement(result, 4));
+        output = output.Substring(0, output.Length - 2);
+        output += "}";
+        Console.WriteLine(output);
 
-        //Console.WriteLine();
+        Console.WriteLine();
 
-        //Console.WriteLine("Checking the result of uniting setA, setB\n");
+        Console.WriteLine("Checking the result of complement setA, universal\n");
 
-        //List<object> setA = new List<object>() { 1, 2, 3, };
-        //List<object> setB = new List<object>() { 3, 4, 5 };
-        //var anotherList = Set.Union(setA, setB);
+        anotherList = Set.Complement(setA, new List<object> { 1, 2, 3, 4, 5 });
 
-        //output = "{";
-        //foreach (var item in anotherList)
-        //{
-        //    output += item.ToString() + ", ";
-        //}
+        output = "{";
+        foreach (var item in anotherList)
+        {
+            output += item.ToString() + ", ";
+        }
 
-        //output = output.Substring(0, output.Length - 2);
-        //output += "}";
-        //Console.WriteLine(output);
+        output = output.Substring(0, output.Length - 2);
+        output += "}";
 
-        //Console.WriteLine();
+        Console.WriteLine(output);
 
-        //Console.WriteLine("Checking the result of Intersecting setA, setB\n");
+        Console.WriteLine("Eval exp\n");
 
-        //anotherList = Set.Intersection(setA, setB);
-
-        //output = "{";
-        //foreach (var item in anotherList)
-        //{
-        //    output += item.ToString() + ", ";
-        //}
-
-        //output = output.Substring(0, output.Length - 2);
-        //output += "}";
-        //Console.WriteLine(output);
-
-        //Console.WriteLine();
-
-
-        //Console.WriteLine("Checking the result of Differecing setA, setB\n");
-
-        //anotherList = Set.Difference(setA, setB);
-
-        //output = "{";
-        //foreach (var item in anotherList)
-        //{
-        //    output += item.ToString() + ", ";
-        //}
-
-        //output = output.Substring(0, output.Length - 2);
-        //output += "}";
-        //Console.WriteLine(output);
-
-        //Console.WriteLine();
-
-        //Console.WriteLine("Checking the result of complement setA, universal\n");
-
-        //anotherList = Set.Complement(setA, new List<object> { 1, 2, 3, 4, 5 });
-
-        //output = "{";
-        //foreach (var item in anotherList)
-        //{
-        //    output += item.ToString() + ", ";
-        //}
-
-        //output = output.Substring(0, output.Length - 2);
-        //output += "}";
-
-        //Console.WriteLine(output);
-
-        //Console.WriteLine("Eval exp\n");
-
-        //List<object> setA = new List<object> { 1, 2, 3, 4};
-        //List<object> setB = new List<object> {};
-        //List<object> setC = new List<object> { 4, 5, 6};
+        //List<object> setA = new List<object> { 1, 2, 3, 4 };
+        //List<object> setB = new List<object> { };
+        //List<object> setC = new List<object> { 4, 5, 6 };
         //Dictionary<string, List<object>> dict = new Dictionary<string, List<object>>();
 
         //dict["setA"] = setA;
@@ -175,12 +92,12 @@
         //output += "}";
 
         //Console.WriteLine(output);
-        var customSubSetList = Set.CustomSubSet(new List<object> { 1, 2, 3 });
+        //var customSubSetList = Set.CustomSubSet(new List<object> { 1, 2, 3 });
 
-        foreach (var subset in customSubSetList)
-        {
-            Console.WriteLine("{" + string.Join(", ", subset) + "}");
-        }
+        //foreach (var subset in customSubSetList)
+        //{
+        //    Console.WriteLine("{" + string.Join(", ", subset) + "}");
+        //}
 
     }
 }

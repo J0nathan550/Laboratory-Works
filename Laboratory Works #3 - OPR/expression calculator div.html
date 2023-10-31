@@ -1,0 +1,78 @@
+<script>
+  function evaluateExpression(expression)
+  {
+      let result = 0;
+      let currentNumber = 0;
+      let operator = 1;
+      let multiplyOrDivide = false;
+      let currentMultiplyOrDivideOperator = 1;
+      for (let i = 0; i < expression.length; i++)
+      {
+          const char = expression[i];
+          if (char >= '0' && char <= '9')
+          {
+              let numberString = "";
+              while (i < expression.length && (expression[i] >= '0' && expression[i] <= '9' || expression[i] == '.'))
+              {
+                  numberString += expression[i];
+                  i++;
+              }
+              i--;
+              const number = parseFloat(numberString);
+              if (multiplyOrDivide)
+              {
+                  if (currentMultiplyOrDivideOperator == 1)
+                  {
+                      currentNumber *= number;
+                  }
+                  else
+                  {
+                      currentNumber /= number;
+                  }
+                  multiplyOrDivide = false;
+              }
+              else
+              {
+                  currentNumber += operator * number;
+              }
+          }
+          else if (char == '+')
+          {
+              operator = 1;
+          }
+          else if (char == '-')
+          {
+              operator = -1;
+          }
+          else if (char == '*')
+          {
+              multiplyOrDivide = true;
+              currentMultiplyOrDivideOperator = 1;
+          }
+          else if (char == '/')
+          {
+              multiplyOrDivide = true;
+              currentMultiplyOrDivideOperator = 0;
+          }
+      }
+      if (multiplyOrDivide)
+      {
+          if (currentMultiplyOrDivideOperator == 1)
+          {
+              result = currentNumber;
+          }
+          else
+          {
+              result = currentNumber / currentMultiplyOrDivideOperator;
+          }
+      }
+      else
+      {
+          result = currentNumber;
+      }
+      return result;
+  }
+  let expression = prompt("Введіть ваш виріз:");
+  const result = evaluateExpression(expression);
+  alert("Результат: " + result);
+</script>

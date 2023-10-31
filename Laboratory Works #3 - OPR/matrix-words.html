@@ -1,0 +1,163 @@
+<script>
+function LongestSmallestWordsSwap(value, dim)
+{
+    let minLength = 1000; 
+    let maxLength = 0;
+    let xMin = 0;
+    let xMax = 0;
+    let yMin = 0;
+    let yMax = 0;
+    let startX = 0;
+    let startY = 0; 
+    let currentLength = 0; 
+    let result = []; 
+
+    for(let v = 0; v < dim; v++)
+    {
+        for(let h = 0; h < dim; h++)
+        {
+            let char = value[v][h];
+            if(char != ' ' || currentLength == 0)
+            {
+                if(currentLength == 0)
+                {
+                    startX = h; 
+                    startY = v; 
+                }
+                if(char != ' '){
+                    currentLength++;
+                }
+            }
+            else
+            {
+                if(currentLength < minLength)
+                {
+                    minLength = currentLength;
+                    xMin = startX; 
+                    yMin = startY; 
+                }
+
+                if(currentLength > maxLength)
+                {
+                    maxLength = currentLength;
+                    xMax = startX; 
+                    yMax = startY; 
+                }
+
+                currentLength = 0;
+            }
+        }
+    }
+    for(let i = 0; i < dim; i++)
+    {
+        result[i] = [];
+    }
+
+    let startMin = yMin * dim + xMin;
+    let startMax = yMax * dim + xMax;
+
+    let first = startMin < startMax ? startMin : startMax;
+    let last = startMin > startMax ? startMin + minLength : startMax + maxLength;
+
+    for(let p = 0; p < first; p++)
+    {
+        let x = p % dim; 
+        let y = parseInt(p / dim);   
+        result[y][x] = value[y][x];
+    }
+    for(let p = last; p < dim * dim; p++)
+    {
+        let x = p % dim; 
+        let y = parseInt(p / dim);   
+        result[y][x] = value[y][x];
+    }
+    if (first == startMin) { 
+        for(let p = 0; p < maxLength; p++ ) {
+            let xMax = (startMax + p) % dim; 
+            let yMax = parseInt((startMax + p) / dim);   
+            let x = (first + p) % dim; 
+            let y = parseInt((first + p) / dim);   
+            result[y][x] = value[yMax][xMax];
+        }
+        for(let p = 0; p < minLength; p++ ) {
+            let xMin = (startMin + p) % dim; 
+            let yMin = parseInt((startMin + p) / dim);   
+            let x = (last - minLength + p) % dim; 
+            let y = parseInt((last - minLength + p) / dim);   
+            result[y][x] = value[yMin][xMin];
+        }
+        for(let p = first + minLength; p < last - maxLength; p++ ) {
+            let xP = p % dim; 
+            let yP = parseInt(p / dim);   
+            let x = (maxLength - minLength + p) % dim; 
+            let y = parseInt((maxLength - minLength + p) / dim);   
+            result[y][x] = value[yP][xP];
+        }
+
+    }
+    else { // We have the max first
+        for(let p = 0; p < minLength; p++ ) {
+            let xMin = (startMin + p) % dim; 
+            let yMin = parseInt((startMin + p) / dim);   
+            let x = (first + p) % dim; 
+            let y = parseInt((first + p) / dim);   
+            result[y][x] = value[yMin][xMin];
+        }
+        for(let p = 0; p < maxLength; p++ ) {
+            let xMax = (startMax + p) % dim; 
+            let yMax = parseInt((startMax + p) / dim);   
+            let x = (last - maxLength + p) % dim; 
+            let y = parseInt((last - maxLength + p) / dim);   
+            result[y][x] = value[yMax][xMax];
+        }
+        for(let p = first + maxLength; p < last - minLength; p++ ) {
+            let xP = p % dim; 
+            let yP = parseInt(p / dim);   
+            let x = (- maxLength + minLength + p) % dim; 
+            let y = parseInt((- maxLength + minLength + p) / dim);   
+            result[y][x] = value[yP][xP];
+        }
+
+    }
+
+    let res = "";
+
+    for(let y = 0; y < dim; y++)
+    {
+        for(let x = 0; x < dim; x++)
+        {
+            res+=result[y][x];
+        }
+        res+="\n";
+    }
+
+    return res;
+}
+
+let arr = []; 
+
+let size = parseInt(prompt("Напишіть розмір массиву 3 -> (3x3):"));
+if(isNaN(size))
+{
+    size = 3; 
+}
+
+for(let i = 0; i < size; i++)
+{
+    let line = prompt(`Напишіть символи для елементів у масиві (${i + 1}): `);
+    arr[i] = [];
+    for(let j = 0; j < size; j++)
+    {
+        let char = line[j];
+        if(!char)
+        {
+            char = ' ';
+        }
+        arr[i][j] = char;
+    }
+}
+
+
+alert(LongestSmallestWordsSwap(arr, size));
+
+</script>
