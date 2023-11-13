@@ -1,58 +1,29 @@
 <script>
-function CustomPush(arr, value) {
-  var len = arr.length;
-  arr[len] = value;
-  len++;
-  arr.length = len;
-  return len;
-}
-
-function findNegativeIndex(row) {
-    for (let i = 0; i < row.length; i++) {
-        if (row[i] < 0) {
-            return i;
-        }
-    }
-    return -1;
-}
-
-function computeBArray(matrix) {
-    const bArray = [];
-    
-    for (let i = 0; i < matrix.length; i++) {
-        const negativeIndex = findNegativeIndex(matrix[i]);
-        
-        if (negativeIndex === -1) {
-            CustomPush(bArray,100);
-        } else {
-            let sum = 0;
-            for (let j = negativeIndex + 1; j < matrix[i].length; j++) {
-                sum += matrix[i][j];
-            }
-            CustomPush(bArray,sum);
-        }
-    }
-    
-    return bArray;
-}
-
-// Приклад використання:
-const matrix = [
-    [1, 2, 3, 4, 5],
-    [1, -2, 3, 4, 5],
-    [1, 2, 3, -4, 5],
-    [1, 2, 3, 4, 5],
-    [1, 2, 3, 4, 5]
+let matrix = [  
+ [2, -3, 5],
+ [-100, 8, -100],
+ [-2, 3, 1]
 ];
+let b = [];
 
-let size = parseInt(prompt("Визначите розмір массиву (3 -> 3x3):"));
-if(isNaN(size))
+for (let i = 0; i < matrix.length; i++) 
 {
-    
+    let sum = 0;
+    let foundNegative = false;
+    for (let j = 0; j < matrix[i].length; j++) 
+    {
+        if (matrix[i][j] < 0) 
+        {
+            foundNegative = true;
+        } 
+        else if (foundNegative) 
+        {
+            sum += matrix[i][j];
+        }
+    }
+    b[i] = foundNegative ? sum : 100;
 }
 
-const bArray = computeBArray(matrix);
-alert("Результат: " + bArray); // Результат: [100, 12, 5, 100, 100]
-
+console.log(b);
 
 </script>

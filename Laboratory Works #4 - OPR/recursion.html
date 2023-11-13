@@ -1,0 +1,45 @@
+<script>
+function findElement(n, c1, d1) 
+{
+    if (n == 1) 
+    {
+        return c1;
+    } 
+    else if (n == 2) 
+    {
+        return d1;
+    } 
+    else 
+    {
+        return findElement(n - 1, c1, d1) + findElement(n - 2, c1, d1);
+    }
+}
+
+function main() 
+{ 
+    let n = parseInt(prompt("Введіть число для змінній (n): "));
+    if(isNaN(n)) 
+    {
+        alert("Змінна (n) має символи, або воно пусте, перезапишіть значення.");
+        return;
+    }
+
+    let c1 = parseInt(prompt("Введіть число для змінній (c1): "));
+    if(isNaN(c1)) 
+    {
+        alert("Змінна (c1) має символи, або воно пусте, перезапишіть значення.");
+        return;
+    }
+
+    let d1 = parseInt(prompt("Введіть число для змінній (d1): "));
+    if(isNaN(d1)) 
+    {
+        alert("Змінна (d1) має символи, або воно пусте, перезапишіть значення.");
+        return;
+    }
+    
+    alert("Відповідь: " + findElement(n, c1, d1));
+}
+
+main();
+</script>

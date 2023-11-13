@@ -1,0 +1,71 @@
+<script>
+function isPalindrome(word) 
+{
+    let left = 0;
+    let right = word.length - 1;
+
+    while (right > left) 
+    {
+        if (word[left] != word[right]) 
+        {
+            return false;
+        }
+        left++;
+        right--;
+    }
+    return true;
+}
+
+function findPalindromes(text) 
+{
+    let word = '';
+    let palindromeTable = '';
+    text += ' ';
+
+    for (let i = 0; i < text.length; i++) 
+    {
+        if (text[i] != ' ') {
+            word += text[i];
+        } 
+        else 
+        {
+            if (isPalindrome(word)) 
+            {
+                if (word.length > 1) 
+                {
+                    palindromeTable += word + ", ";
+                }
+            }
+            word = '';
+        }
+    }
+    if(palindromeTable.length == 0)
+    {
+        alert("У цьому тексті нема слів палендромів.");
+    }
+    else 
+    {
+        palindromeTable = removeCharacterAt(palindromeTable, palindromeTable.length - 2);
+        alert("Слова палендроми:\n" + palindromeTable);
+    }
+}
+function removeCharacterAt(str, index) {
+    if (index < 0 || index >= str.length) 
+    {
+        return str;
+    }
+
+    let newString = '';
+    for (let i = 0; i < str.length; i++) 
+    {
+        if (i !== index) 
+        {
+            newString += str[i];
+        }
+    }
+
+    return newString;
+}
+
+findPalindromes(prompt("Напишіть ваше речення:"));
+</script>
