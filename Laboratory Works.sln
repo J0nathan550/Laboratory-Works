@@ -14,7 +14,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Laboratory Works #2 - KDM C
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Laboratory Works #3 - KDM Advanced Propositional Logic and Computational Logic", "Laboratory Works #3 - KDM Advanced Propositional Logic and Computational Logic\Laboratory Works #3 - KDM Advanced Propositional Logic and Computational Logic.csproj", "{A24055ED-E35F-4ABB-8387-582DD35A6C82}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Laboratory Works #4 - KDM Functions and Numbers", "Laboratory Works #4 - KDM Functions and Numbers\Laboratory Works #4 - KDM Functions and Numbers.csproj", "{0DBF191C-9D5E-45A0-8FEE-7732F8627A8A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Laboratory Works #4 - KDM Functions and Numbers", "Laboratory Works #4 - KDM Functions and Numbers\Laboratory Works #4 - KDM Functions and Numbers.csproj", "{0DBF191C-9D5E-45A0-8FEE-7732F8627A8A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Laboratory Works #5 - KDM SKIP FUNCTIONS", "Laboratory Works #5\Laboratory Works #5 - KDM SKIP FUNCTIONS.csproj", "{E10B0DCA-D950-489E-8065-46C10EEFE84E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -38,6 +40,10 @@ Global
 		{0DBF191C-9D5E-45A0-8FEE-7732F8627A8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0DBF191C-9D5E-45A0-8FEE-7732F8627A8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0DBF191C-9D5E-45A0-8FEE-7732F8627A8A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E10B0DCA-D950-489E-8065-46C10EEFE84E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E10B0DCA-D950-489E-8065-46C10EEFE84E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E10B0DCA-D950-489E-8065-46C10EEFE84E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E10B0DCA-D950-489E-8065-46C10EEFE84E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
