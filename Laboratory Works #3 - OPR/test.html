@@ -1,0 +1,50 @@
+<script>
+function connectArrays(x, y) 
+{
+    const z = [];
+    let i = 0, j = 0, k = 0;
+
+    while (i < x.length && j < y.length) 
+    {
+        if (x[i] < y[j]) 
+        {
+            z[k] = x[i];
+            i++;
+        } 
+        else if (x[i] > y[j]) 
+        {
+            z[k] = y[j];
+            j++;
+        } 
+        else 
+        {
+            z[k] = x[i];
+            i++;
+        }
+        k++;
+    }
+
+    while (i < x.length) 
+    {
+        z[k] = x[i];
+        i++;
+        k++;
+    }
+
+    while (j < y.length) 
+    {
+        z[k] = y[j];
+        j++;
+        k++;
+    }
+    
+    z.length = k;
+    return z;
+}
+
+const x = [1, 2, 2, 3, 5, 8, 15, 18, 20];
+const y = [1, 2, 3, 3, 7, 8, 12];
+
+const z = connectArrays(x, y);
+console.log(z);
+</script>

@@ -1,29 +1,40 @@
 <script>
-let matrix = [  
- [2, -3, 5],
- [-100, 8, -100],
- [-2, 3, 1]
+const matrix = [
+  [-2, -3, -5],
+  [-100, 8, -100],
+  [-2, -3, 1]
 ];
-let b = [];
+
+const result = [];
 
 for (let i = 0; i < matrix.length; i++) 
 {
-    let sum = 0;
-    let foundNegative = false;
-    for (let j = 0; j < matrix[i].length; j++) 
+  const row = matrix[i];
+  let sum = 0;
+
+  let negativeIndex = -1;
+  for (let j = 0; j < row.length; j++) 
+  {
+    if (row[j] < 0) 
     {
-        if (matrix[i][j] < 0) 
-        {
-            foundNegative = true;
-        } 
-        else if (foundNegative) 
-        {
-            sum += matrix[i][j];
-        }
+      negativeIndex = j;
+      break;
     }
-    b[i] = foundNegative ? sum : 100;
+  }
+  if (negativeIndex != -1 && negativeIndex < row.length - 1) 
+  {
+    for (let k = negativeIndex + 1; k < row.length; k++) 
+    {
+      sum += row[k];
+    }
+  } 
+  else 
+  {
+    sum = 100;
+  }
+
+  result[i] = sum;
 }
 
-console.log(b);
-
+console.log(result);
 </script>
