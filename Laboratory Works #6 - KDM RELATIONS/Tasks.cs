@@ -4,69 +4,111 @@
     {
         public static void ReflexivityCheckerFirst()
         {
+            Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("First task (Reflexivity Checker):");
-            // Set
-            var set = new HashSet<int> { 1, 2, 3 };
 
-            // Relation
+            var set = new HashSet<int> { 1, 2, 3 };
             var relation = new List<Tuple<int, int>> { Tuple.Create(1, 1), Tuple.Create(2, 2), Tuple.Create(3, 3) };
+            
+            string outputSet = "{";
+            foreach (var item in set) outputSet += item + ", ";
+            outputSet = outputSet.Substring(0, outputSet.Length - 2);
+            outputSet += "}";
+
+            string outputRelation = "{";
+            foreach (var item in relation) outputRelation += item + ", ";
+            outputRelation = outputRelation.Substring(0, outputRelation.Length - 2);
+            outputRelation += "}";
 
             // Check if the relation is reflexive
             bool isReflexive = Relations.IsReflexive(set, relation);
 
             // Output
-            Console.WriteLine("Is Reflexive: " + isReflexive);
+            Console.WriteLine($"* Set: {outputSet}\n* Relation: {outputRelation}\nIs Reflexive: {isReflexive}");
+            Console.WriteLine();
+            Console.ResetColor();
         }
         public static void SymmetryIdentifierSecond() 
         {
+            Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine("Second task (Symmetry Identifier):");
-            // Relation
+
             var relation = new List<Tuple<int, int>> { Tuple.Create(1, 2), Tuple.Create(2, 1), Tuple.Create(3, 3) };
 
-            // Check if the relation is symmetric
+            string outputRelation = "{";
+            foreach (var item in relation) outputRelation += item + ", ";
+            outputRelation = outputRelation.Substring(0, outputRelation.Length - 2);
+            outputRelation += "}";
+
             bool isSymmetric = Relations.IsSymmetric(relation);
 
             // Output
-            Console.WriteLine("Is Symmetric: " + isSymmetric);
+            Console.WriteLine($"* Relation: {outputRelation}\nIs Symmetric: {isSymmetric}");
+            Console.WriteLine();
+            Console.ResetColor();
         }
         public static void TransitivityVerifierThird()
         {
+            Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("Third task (Transitivity Verifier):");
-            // Relation
+            
             var relation = new List<Tuple<int, int>> { Tuple.Create(1, 2), Tuple.Create(2, 3), Tuple.Create(1, 3) };
 
-            // Check if the relation is transitive
+            string outputRelation = "{";
+            foreach (var item in relation) outputRelation += item + ", ";
+            outputRelation = outputRelation.Substring(0, outputRelation.Length - 2);
+            outputRelation += "}";
+
             bool isTransitive = Relations.IsTransitive(relation);
 
             // Output
-            Console.WriteLine("Is Transitive: " + isTransitive);
+            Console.WriteLine($"* Relation: {outputRelation}\nIs Transitive: {isTransitive}");
+            Console.WriteLine();
+            Console.ResetColor();
         }
         public static void EquivalenceRelationCheckerFourth()
         {
-            Console.WriteLine("Fourth task (Transitivity Verifier):");
-            // Set
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine("Fourth task (Equivalence Relation Checker):");
+
             var set = new HashSet<int> { 1, 2, 3 };
+            var relation = new List<Tuple<int, int>> { Tuple.Create(1, 1), Tuple.Create(1, 3), Tuple.Create(2, 2), Tuple.Create(3, 3), Tuple.Create(1, 2), Tuple.Create(2, 1), Tuple.Create(2, 3), Tuple.Create(3, 2), Tuple.Create(3, 1) };
 
-            // Relation
-            var relation = new List<Tuple<int, int>> { Tuple.Create(1, 1), Tuple.Create(2, 2), Tuple.Create(3, 3), Tuple.Create(1, 2), Tuple.Create(2, 1), Tuple.Create(2, 3), Tuple.Create(3, 2) };
+            string outputSet = "{";
+            foreach (var item in set) outputSet += item + ", ";
+            outputSet = outputSet.Substring(0, outputSet.Length - 2);
+            outputSet += "}";
 
-            // Check if the relation is an equivalence relation
+            string outputRelation = "{";
+            foreach (var item in relation) outputRelation += item + ", ";
+            outputRelation = outputRelation.Substring(0, outputRelation.Length - 2);
+            outputRelation += "}";
+
             bool isEquivalenceRelation = Relations.IsEquivalenceRelation(set, relation);
 
             // Output
-            Console.WriteLine("Is Equivalence Relation: " + isEquivalenceRelation);
+            Console.WriteLine($"* Set: {outputSet}\n* Relation: {outputRelation}\nEquivalence Relation: {isEquivalenceRelation}");
+            Console.WriteLine();
+            Console.ResetColor();
         }
         public static void InverseRelationGeneratorFifth()
         {
+            Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine("Fifth task (Inverse Relation Generator):");
-            // Given Relation
+
             var relation = new List<Tuple<int, int>> { Tuple.Create(1, 2), Tuple.Create(3, 4), Tuple.Create(5, 6) };
 
-            // Generate Inverse Relation
+            string outputRelation = "{";
+            foreach (var item in relation) outputRelation += item + ", ";
+            outputRelation = outputRelation.Substring(0, outputRelation.Length - 2);
+            outputRelation += "}";
+
             var inverseRelation = Relations.GenerateInverseRelation(relation);
 
             // Output
-            Console.WriteLine("Inverse Relation: " + string.Join(", ", inverseRelation.Select(pair => $"({pair.Item1}, {pair.Item2})")));
+            Console.WriteLine($"* Relation: {outputRelation}\nInverse Relation: " + string.Join(", ", inverseRelation.Select(pair => "{" + $"({pair.Item1}, {pair.Item2})" + "}")));
+            Console.WriteLine();
+            Console.ResetColor();
         }
     }
 }

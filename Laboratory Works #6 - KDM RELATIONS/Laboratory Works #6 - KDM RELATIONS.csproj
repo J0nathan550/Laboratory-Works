@@ -6,7 +6,6 @@
     <RootNamespace>Laboratory_Works__6___KDM_RELATIONS</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <PublishAot>true</PublishAot>
     <InvariantGlobalization>true</InvariantGlobalization>
   </PropertyGroup>
 
