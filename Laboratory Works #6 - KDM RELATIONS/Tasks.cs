@@ -8,7 +8,7 @@
             Console.WriteLine("First task (Reflexivity Checker):");
 
             var set = new HashSet<int> { 1, 2, 3 };
-            var relation = new List<Tuple<int, int>> { Tuple.Create(1, 1), Tuple.Create(2, 2), Tuple.Create(3, 3) };
+            var relation = new List<Tuple<int, int>> { Tuple.Create(1, 1), Tuple.Create(2, 2), Tuple.Create(1, 2), Tuple.Create(2, 1) };
             
             string outputSet = "{";
             foreach (var item in set) outputSet += item + ", ";
@@ -33,7 +33,7 @@
             Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine("Second task (Symmetry Identifier):");
 
-            var relation = new List<Tuple<int, int>> { Tuple.Create(1, 2), Tuple.Create(2, 1), Tuple.Create(3, 3) };
+            var relation = new List<Tuple<int, int>> { Tuple.Create(1, 1), Tuple.Create(2, 2), Tuple.Create(1, 2), Tuple.Create(2, 1) };
 
             string outputRelation = "{";
             foreach (var item in relation) outputRelation += item + ", ";
@@ -52,7 +52,7 @@
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("Third task (Transitivity Verifier):");
             
-            var relation = new List<Tuple<int, int>> { Tuple.Create(1, 2), Tuple.Create(2, 3), Tuple.Create(1, 3) };
+            var relation = new List<Tuple<int, int>> { Tuple.Create(1, 1), Tuple.Create(2, 2), Tuple.Create(1, 2), Tuple.Create(2, 1) };
 
             string outputRelation = "{";
             foreach (var item in relation) outputRelation += item + ", ";
@@ -72,7 +72,7 @@
             Console.WriteLine("Fourth task (Equivalence Relation Checker):");
 
             var set = new HashSet<int> { 1, 2, 3 };
-            var relation = new List<Tuple<int, int>> { Tuple.Create(1, 1), Tuple.Create(1, 3), Tuple.Create(2, 2), Tuple.Create(3, 3), Tuple.Create(1, 2), Tuple.Create(2, 1), Tuple.Create(2, 3), Tuple.Create(3, 2), Tuple.Create(3, 1) };
+            var relation = new List<Tuple<int, int>> { Tuple.Create(1, 1), Tuple.Create(2, 2), Tuple.Create(1, 2), Tuple.Create(2, 1) };
 
             string outputSet = "{";
             foreach (var item in set) outputSet += item + ", ";
@@ -96,7 +96,7 @@
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine("Fifth task (Inverse Relation Generator):");
 
-            var relation = new List<Tuple<int, int>> { Tuple.Create(1, 2), Tuple.Create(3, 4), Tuple.Create(5, 6) };
+            var relation = new List<Tuple<int, int>> { Tuple.Create(1, 1), Tuple.Create(2, 2), Tuple.Create(1, 2), Tuple.Create(2, 1) };
 
             string outputRelation = "{";
             foreach (var item in relation) outputRelation += item + ", ";
