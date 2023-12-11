@@ -7,8 +7,8 @@ namespace Laboratory
     /// </summary>
     class Set
     {
-        public static Set Empty => new Set();
-        private List<object> _elements = new List<object>() { };
+        public static Set Empty => new();
+        private List<object> _elements = [];
         public int Count => _elements.Count;
         public Set() { }
         public Set(IEnumerable elements)
@@ -527,7 +527,7 @@ namespace Laboratory
                     }
                     else
                     {
-                        map.Add(x, new List<object>() { y });
+                        map.Add(x, [y]);
                     }
                 }
 

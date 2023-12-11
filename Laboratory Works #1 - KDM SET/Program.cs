@@ -5,8 +5,8 @@
         string output = "";
         Console.WriteLine("Checking the result of uniting setA, setB\n");
 
-        List<object> setA = new List<object>() { 2, 4, 6, 8, 10 };
-        List<object> setB = new List<object>() { 1, 3, 5, 7, 9 };
+        List<object> setA = new() { 2, 4, 6, 8, 10 };
+        List<object> setB = new() { 1, 3, 5, 7, 9 };
         var anotherList = Set.Union(setA, setB);
 
         output = "{";

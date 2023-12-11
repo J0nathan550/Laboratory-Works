@@ -26,7 +26,7 @@ public static class Set
     /// <returns>A list with custom elements.</returns>
     public static List<object> CreateSet(List<object> set)
     {
-        List<object> result = new List<object>();
+        List<object> result = new();
         if (set.Count == 0)
         {
             Console.WriteLine("Looks like you are tried to add empty list. Operation will return the null list.");
@@ -119,7 +119,7 @@ public static class Set
     /// <returns>united list with all elements together (without duplicates)</returns>
     public static List<object> Union(List<object> setA, List<object> setB)
     {
-        List<object> result = new List<object>();
+        List<object> result = new();
         if (setA.Count == 0 || setB.Count == 0)
         {
             result.Add("Lists can't unite, or the input that was represented is null.");
@@ -150,7 +150,7 @@ public static class Set
     /// <returns>Intersecting element.</returns>
     public static List<object> Intersection(List<object> setA, List<object> setB)
     {
-        List<object> result = new List<object>();
+        List<object> result = new();
         if (setA.Count == 0 || setB.Count == 0)
         {
             result.Add("The input that was given is null. And cannot be operated!");
@@ -174,7 +174,7 @@ public static class Set
     /// <returns>different value from the list B</returns>
     public static List<object> Difference(List<object> setA, List<object> setB)
     {
-        List<object> result = new List<object>();
+        List<object> result = new();
         if (setA.Count == 0 || setB.Count == 0)
         {
             result.Add("The input that was given is null. And cannot be operated!");
@@ -209,7 +209,7 @@ public static class Set
     public static List<object> ExpressionEvaluator(string expression, Dictionary<string, List<object>> setDict)
     {
         string[] expressions = expression.Split(' ');
-        List<object> result = new List<object>();
+        List<object> result = new();
         
         PossibleFunctions currentFunction = PossibleFunctions.None;
 
@@ -259,12 +259,12 @@ public static class Set
 
     public static List<List<object>> CustomSubSet(List<object> list)
     {
-        List<List<object>> resultSubset = new List<List<object>>();
+        List<List<object>> resultSubset = new();
         int totalSubsetNumber = 1 << list.Count;
 
         for (int i = 0; i < totalSubsetNumber; i++)
         {
-            List<object> subset = new List<object>();
+            List<object> subset = new();
             for (int j = 0; j < list.Count; j++)
             {
                 if ((i & (1 << j)) != 0)

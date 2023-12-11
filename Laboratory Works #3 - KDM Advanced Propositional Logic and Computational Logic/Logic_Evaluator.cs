@@ -71,7 +71,7 @@ public static class Logic_Evaluator
         }
         result += "\n";
 
-        List<string> values = new List<string>();
+        List<string> values = new();
         GenerateTruthTableRecursive(values, 0, bufferDictionaryTruthTable.Count, "");
 
         foreach (var value in values)
